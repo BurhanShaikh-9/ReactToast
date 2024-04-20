@@ -3,12 +3,14 @@ import Toaster1 from './toaster/toast1'
 import Toaster2 from './toaster/toast2'
 import './assets/style.css'
 
-const NixToast = ({type, position, duration, barPosition}) => {
+
+const NixToast = ({type, position, duration, barPosition, barColor}) => {
  
   const toastsProps = {
     position,
     duration,
-    barPosition
+    barPosition,
+    barColor
   }
   return (
     <React.Fragment>
