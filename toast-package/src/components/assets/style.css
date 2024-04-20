@@ -1,0 +1,80 @@
+.nix_toastMainContainer {
+  position: fixed;
+  background-color: red;
+  cursor: pointer;
+}
+
+.nix_toastImg {
+  width: 30px;
+  height: 30px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.nix_toastInner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+}
+
+.nix_toastDuration {
+  position: absolute;
+  height: 4px;
+  background-color: green;
+  width: 100%;
+}
+
+.nix_toastDuration {
+  height: 5px;
+  background-color: #4caf50;
+  width: 0%;
+}
+
+@keyframes durationAnimation {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+.nix_top-right {
+  right: 0;
+  top: 0;
+}
+
+.nix_top-center {
+  left: 50%;
+  transform: translate(-50%, 0);
+  top: 0;
+}
+
+.nix_top-left {
+  left: 0;
+  top: 0;
+}
+
+.nix_bottom-right {
+  right: 0;
+  bottom: 0;
+}
+
+.nix_bottom-center {
+  left: 50%;
+  transform: translate(-50%, 0);
+  bottom: 0;
+}
+
+.nix_bottom-left {
+  left: 0;
+  bottom: 0;
+}
+
+.nix_bar-top {
+  top: 0;
+}
+
+.nix_bar-bottom {
+  bottom: 0;
+}/*# sourceMappingURL=style.css.map */
