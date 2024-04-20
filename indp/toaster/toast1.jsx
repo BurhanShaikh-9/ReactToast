@@ -2,13 +2,13 @@ import React, { useEffect, useRef } from 'react'
 
 const Toaster1 = ({position, duration, barPosition}) => {
 
-  // useEffect(()=>{
 
-  // },[])
   
   const animationStyle = {
     animation: `durationAnimation ${duration}s linear forwards`,
   };
+
+
 
   return (
     <React.Fragment>
@@ -19,7 +19,7 @@ const Toaster1 = ({position, duration, barPosition}) => {
             <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Flat_tick_icon.svg" className='nix_toastImg' alt="" />
           </div>
           <div>
-            this is your msg
+            this is your msgssddddddd
           </div>
         </div>
       </div>

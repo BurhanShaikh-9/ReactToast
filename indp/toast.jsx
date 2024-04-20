@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import Toaster1 from './toaster/toast1'
 import Toaster2 from './toaster/toast2'
 import './assets/style.css'
@@ -10,11 +10,6 @@ const NixToast = ({type, position, duration, barPosition}) => {
     duration,
     barPosition
   }
-
-  useEffect(()=>{
-
-  },[])
-
   return (
     <React.Fragment>
       { type === '1' && <Toaster1 {...toastsProps} />}
