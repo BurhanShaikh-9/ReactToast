@@ -8,24 +8,24 @@ const useNixToast = () => {
 
 
   const nixToast = (message) => {
-    setIsShow(true)
+    setIsShow()
     setIsMsg(message)
   };
 
   const nixSuccess = (message) => {
-    setIsShow(true)
+    setIsShow()
     setIsMsg(message)
     setBarColor('#00CC66')
   };
 
   const nixError = (message) => {
-    setIsShow(true)
+    setIsShow()
     setIsMsg(message)
     setBarColor('#FF6347')
   };
 
   const nixWarn = (message) => {
-    setIsShow(true)
+    setIsShow()
     setIsMsg(message)
     setBarColor()
   };
