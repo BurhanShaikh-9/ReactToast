@@ -1,11 +1,12 @@
 import React, { useEffect, useRef } from 'react'
 import crossSvg from '../assets/crossSign.svg';
+import { useToastStates } from '../hooks/globalVariable';
 
 const Toaster1 = ({ position, duration, barPosition, barColor }) => {
 
+  const { isMsg, isHide, isBarColor } = useToastStates()
 
-
-  const animationStyle = { animation: `durationAnimation ${duration}s linear forwards`, background: barColor };
+  const animationStyle = { animation: `durationAnimation ${duration}s linear forwards`, background: isBarColor? isBarColor : barColor };
 
 
 
@@ -15,14 +16,14 @@ const Toaster1 = ({ position, duration, barPosition, barColor }) => {
         <div className="nix_toastInner">
           <div className={`nix_toastDuration nix_${barPosition ? barPosition : 'bar-top'}`} style={animationStyle}></div>
           <div className='nix_inContent'>
-            <button className='nix_cancelToast'>
+            <button className='nix_cancelToast' onClick={()=>isHide()}>
               <img src={crossSvg} alt="" className='' />
             </button>
             <div>
               <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Flat_tick_icon.svg" className='nix_toastImg' alt="" />
             </div>
             <div>
-              this is your msgssddddddd
+              {isMsg}
             </div>
           </div>
         </div>
