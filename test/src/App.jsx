@@ -17,7 +17,7 @@ function App() {
       <button onClick={() => nixError('hey')}>Trigger Error</button>
       <button onClick={() => nixSuccess('lol')}>Trigger Success</button>
 
-      <NixToast type="1" position="top-center" duration="3" barPosition="bar-bottom" barColor="#13bf19"/>
+      <NixToast type="1" position="top-right" duration="500" barPosition="bar-bottom" barColor="#13bf19"/>
    </React.Fragment>
   )
 }

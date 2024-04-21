@@ -56,7 +56,7 @@
     }
 }
 
-@keyframes bounceIn {
+@keyframes bounceInTop {
     0% {
         transform: translateY(-100%);
     }
@@ -71,6 +71,40 @@
 
     100% {
         transform: translateY(0);
+    }
+}
+@keyframes bounceInLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    50% {
+        transform: translateX(0);
+    }
+
+    75% {
+        transform: translateX(-20%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+@keyframes bounceInRight {
+    0% {
+        transform: translateX(100%);
+    }
+
+    50% {
+        transform: translateX(0);
+    }
+
+    75% {
+        transform: translateX(20%);
+    }
+
+    100% {
+        transform: translateX(0);
     }
 }
 
@@ -90,8 +124,8 @@
   }
 
 .nix_top-right {
-    right: 0;
-    top: 0;
+    right: 30px;
+    top: 25px;
 }
 
 .nix_top-center {
@@ -101,14 +135,13 @@
 }
 
 .nix_top-left {
-    left: 20px;
-    top: 020px;
+    left: 30px;
+    top: 25px;
 }
 
 .nix_bottom-right {
-    right: 20px;
-    bottom: 20px;
-
+    right: 30px;
+    bottom: 25px;
 }
 
 .nix_bottom-center {
@@ -118,8 +151,8 @@
 }
 
 .nix_bottom-left {
-    left: 20px;
-    bottom: 20px;
+    left: 30px;
+    bottom: 25px;
 }
 
 .nix_bar-top {
