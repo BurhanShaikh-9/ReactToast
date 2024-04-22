@@ -2,7 +2,7 @@
   "name": "nix-toast",
   "version": "1.0.6",
   "description": "toast description",
-  "main": "index.jsx",
+  "main": "toast.jsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

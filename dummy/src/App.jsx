@@ -14,6 +14,7 @@ function App() {
       <button onClick={() => setIsShow(!isShow)}>Clicked</button> 
       <p>Toast Visibility: {isShow ? 'Visible' : 'Hidden'}</p>
       <p>showing:{showing}</p>
+      {/* <p>Default:{toastVisibilityDefault}</p> */}
     </React.Fragment>
   );
 }
