@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import NixToast from '../../indp/toast.jsx'
-import useNixToast from '../../indp/hooks/useNixToast.js'
+import useNixToast from '../../indp/src/hooks/useNixToast.js'
 
 
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useToastStates } from './globalVariable'
+import  useToastStates  from './globalVariable'
 
 const nixButtons = () => {
     const { isHide } = useToastStates()

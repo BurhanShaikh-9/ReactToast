@@ -1,5 +1,6 @@
 import React from 'react'
 import Toaster from './toast'
+import { RecoilRoot } from 'recoil'
 
 const NixToast = () => {
     return (

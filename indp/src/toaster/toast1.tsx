@@ -1,9 +1,17 @@
 import React, { useEffect, useRef } from 'react'
-import crossSvg from '../assets/crossSign.svg';
+import crossSvg from '../../assets/crossSign.svg';
 import { useToastStates } from '../hooks/globalVariable';
 import nixButtons from '../hooks/buttonService';
 
-const Toaster1 = ({ position, duration, barPosition, barColor }) => {
+
+interface ToasterProps {
+  position: string;
+  duration: number;
+  barPosition?: string;
+  barColor?: string;
+}
+
+const Toaster: React.FC<ToasterProps> = ({ position, duration, barPosition, barColor }) => {
 
   const { hideToast } = nixButtons();
   const { isMsg, isBarColor, isShow, animateInOutDuration } = useToastStates()
@@ -13,8 +21,10 @@ const Toaster1 = ({ position, duration, barPosition, barColor }) => {
       case 'top-center':
         return 'bounceInTop';
       case 'top-left':
+      case 'bottom-left':
         return 'bounceInLeft';
       case 'top-right':
+      case 'bottom-right':
         return 'bounceInRight';
       case 'bottom-center':
         return 'bounceInCenterBot';
@@ -49,4 +59,4 @@ const Toaster1 = ({ position, duration, barPosition, barColor }) => {
   )
 }
 
-export default Toaster1
+export default Toaster
