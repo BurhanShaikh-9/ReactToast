@@ -1,6 +1,6 @@
 {
   "name": "nix-toast",
-  "version": "1.0.9",
+  "version": "1.0.12",
   "description": "toast description",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",

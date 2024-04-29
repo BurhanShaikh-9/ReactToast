@@ -1,14 +1,10 @@
-import { useToastStates } from './globalVariable';
+import { NixToastFunctions } from '../types';
+import  UseToastStates from './globalVariable';
 
-interface NixToastFunctions {
-  nixToast: (message: string) => void;
-  nixSuccess: (message: string) => void;
-  nixError: (message: string) => void;
-  nixWarn: (message: string) => void;
-}
 
-const useNixToast = (): NixToastFunctions => {
-  const { setIsShow, setIsMsg, setBarColor } = useToastStates();
+
+const UseNixToast = (): NixToastFunctions => {
+  const { setIsShow, setIsMsg, setBarColor } = UseToastStates();
 
   const nixToast = (message: string) => {
     setIsShow();
@@ -36,4 +32,4 @@ const useNixToast = (): NixToastFunctions => {
   return { nixToast, nixSuccess, nixError, nixWarn };
 };
 
-export default useNixToast;
+export default UseNixToast;

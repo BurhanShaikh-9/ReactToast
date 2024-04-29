@@ -1,20 +1,15 @@
 import React, { useEffect, useRef } from 'react'
 import crossSvg from '../../assets/crossSign.svg';
-import { useToastStates } from '../hooks/globalVariable';
-import nixButtons from '../hooks/buttonService';
+import  UseToastStates  from '../hooks/globalVariable';
+import NixButtons from '../hooks/buttonService';
+import { ToasterProps } from '../types';
 
 
-interface ToasterProps {
-  position: string;
-  duration: number;
-  barPosition?: string;
-  barColor?: string;
-}
 
 const Toaster: React.FC<ToasterProps> = ({ position, duration, barPosition, barColor }) => {
 
-  const { hideToast } = nixButtons();
-  const { isMsg, isBarColor, isShow, animateInOutDuration } = useToastStates()
+  const { hideToast } = NixButtons();
+  const { isMsg, isBarColor, isShow, animateInOutDuration } = UseToastStates()
 
   const getAnimationIn = () => {
     switch (position) {

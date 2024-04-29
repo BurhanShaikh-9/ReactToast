@@ -1,11 +1,11 @@
-import { useToastStates } from './globalVariable';
+import { nixBtnProp } from '../types';
+import UseToastStates from './globalVariable';
 
-type NixButtonsReturnType = {
-  hideToast: () => void;
-};
 
-const nixButtons = (): NixButtonsReturnType => {
-  const { isHide } = useToastStates();
+
+
+const NixButtons = (): nixBtnProp => {
+  const { isHide } = UseToastStates();
 
   const hideToast: () => void = () => {
     isHide();
@@ -15,4 +15,4 @@ const nixButtons = (): NixButtonsReturnType => {
   return { hideToast };
 };
 
-export default nixButtons;
+export default NixButtons;

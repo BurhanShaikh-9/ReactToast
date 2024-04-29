@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
-import NixToast from '../../indp/toast.jsx'
-import useNixToast from '../../indp/src/hooks/useNixToast.js'
+import {NixToast} from 'nix-toast';
+import { UseNixToast } from 'nix-toast'
 
 
 
 function App() {
 
-  const { nixToast, nixSuccess, nixError, nixWarn } = useNixToast();
+  const { nixToast, nixSuccess, nixError, nixWarn } = UseNixToast();
 
   // useEffect(()=>{
   //   nixError('errr')

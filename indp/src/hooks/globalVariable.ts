@@ -1,24 +1,10 @@
 import { create } from 'zustand';
-
-interface ToastState {
-    animateInOutDuration: number;
-    isShow: {
-        show: boolean;
-        triggerAnimation: boolean;
-    };
-    isHide: () => void;
-    setIsShow: () => void;
-    isMsg: string;
-    setIsMsg: (msg: string) => void;
-    isBarColor: string;
-    setBarColor: (color: string) => void;
-}
-
-
+import { ToastState } from '../types';
 
 
 const animationDuration = 5
-export const useToastStates = create<ToastState>((set) => ({
+
+const UseToastStates = create<ToastState>((set) => ({
     animateInOutDuration: animationDuration,
 
     isShow: { show: false, triggerAnimation: false },
@@ -35,4 +21,10 @@ export const useToastStates = create<ToastState>((set) => ({
 
     isBarColor: '',
     setBarColor: (color) => set((state) => ({ ...state, isBarColor: color })),
+
+
+    isImg:'',
+    setIsImg: (img) => set((state) => ({ ...state, isImg: img })),
 }));
+
+export default UseToastStates;

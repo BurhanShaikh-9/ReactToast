@@ -2,21 +2,16 @@ import React, { useEffect, useRef } from 'react';
 import Toaster1 from './toaster/toast1';
 import Toaster2 from './toaster/toast2';
 import '../assets/style.css';
-import useNixToast from './hooks/useNixToast';
-import { useToastStates } from './hooks/globalVariable';
-import nixButtons from './hooks/buttonService';
+import UseNixToast from "./hooks/useNixToast";
+import  UseToastStates  from './hooks/globalVariable';
+import NixButtons from './hooks/buttonService';
+import { NixToastProps } from './types';
 
-interface NixToastProps  {
-  type: '1' | '2';
-  position: string;
-  duration: number;
-  barPosition?: string;
-  barColor?: string;
-}
+
 
 const NixToast: React.FC<NixToastProps> = ({ type, position, duration, barPosition, barColor }: NixToastProps) => {
-  const { isShow } = useToastStates();
-  const { hideToast } = nixButtons();
+  const { isShow } = UseToastStates();
+  const { hideToast } = NixButtons();
   const timeoutRef = useRef<NodeJS.Timeout | null>(null); 
 
   const toastsProps = {
@@ -47,9 +42,8 @@ const NixToast: React.FC<NixToastProps> = ({ type, position, duration, barPositi
   return (
     <React.Fragment>
       {type === '1' && <Toaster1 {...toastsProps} />}
-      {/* {type === '2' && <Toaster2 {...toastsProps} />} */}
     </React.Fragment>
   );
 };
 
-export default NixToast;
+export {NixToast, UseNixToast};
