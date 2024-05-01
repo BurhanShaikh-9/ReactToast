@@ -8,10 +8,10 @@ const crossSvg = 'https://react-toast-iota.vercel.app/crossSign.svg'
 
 
 
-const Toaster: React.FC<ToasterProps> = ({ position, duration, barPosition, barColor }) => {
+const Toaster: React.FC<ToasterProps> = ({ position, duration, barPosition, barColor, backgroundColor }) => {
 
   const { hideToast } = NixButtons();
-  const { isMsg, isBarColor, isShow, animateInOutDuration, isImg } = UseToastStates()
+  const { isMsg, isBarColor, isShow, animateInOutDuration, isImg, isBackgroundColor } = UseToastStates()
 
   const getAnimationIn = () => {
     switch (position) {
@@ -30,14 +30,14 @@ const Toaster: React.FC<ToasterProps> = ({ position, duration, barPosition, barC
     }
   };
 
-  const animationStyle = { animation: `durationAnimation ${duration}s linear forwards`, background: isBarColor ? isBarColor : barColor };
+  const animationStyle = { animation: `durationAnimation ${duration}s linear forwards`, background: barColor ? barColor : isBarColor };
   const animationContainerOpen = { animation: `${isShow.triggerAnimation ? getAnimationIn() : 'bounceOut'} .${animateInOutDuration}s ease forwards` };
-
+  const nixToastBackgroundColor = { backgroundColor: backgroundColor ? backgroundColor:  isBackgroundColor}
 
   return (
     <React.Fragment>
       <div className={`nix_toastMainContainer nix_${position}`} style={animationContainerOpen}>
-        <div className="nix_toastInner">
+        <div className="nix_toastInner" style={nixToastBackgroundColor}>
           <div className={`nix_toastDuration nix_${barPosition ? barPosition : 'bar-top'}`} style={animationStyle}></div>
           <div className='nix_inContent'>
             <button className='nix_cancelToast' onClick={() => hideToast()}>

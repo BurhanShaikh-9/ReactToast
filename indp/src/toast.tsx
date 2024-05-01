@@ -9,7 +9,7 @@ import { NixToastProps } from './types';
 
 
 
-const NixToast: React.FC<NixToastProps> = ({ type, position, duration, barPosition, barColor }: NixToastProps) => {
+const NixToast: React.FC<NixToastProps> = ({ type, position, duration, barPosition, barColor, backgroundColor }: NixToastProps) => {
   const { isShow } = UseToastStates();
   const { hideToast } = NixButtons();
   const timeoutRef = useRef<NodeJS.Timeout | null>(null); 
@@ -19,6 +19,7 @@ const NixToast: React.FC<NixToastProps> = ({ type, position, duration, barPositi
     duration,
     barPosition,
     barColor,
+    backgroundColor
   };
 
   useEffect(() => {

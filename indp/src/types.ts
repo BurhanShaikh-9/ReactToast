@@ -4,6 +4,7 @@ export type NixToastProps = {
     duration: number;
     barPosition?: string;
     barColor?: string;
+    backgroundColor?: string;
 }
 
 
@@ -12,6 +13,7 @@ export type ToasterProps = {
     duration: number;
     barPosition?: string;
     barColor?: string;
+    backgroundColor?: string;
 }
 
 
@@ -38,12 +40,12 @@ export type ToastState = {
     setIsMsg: (msg: string) => void;
     isBarColor: string;
     setBarColor: (color: string) => void;
+    isBackgroundColor: string;
+    setBackgroundColor: (color: string) => void;
     isImg: string;
     setIsImg: (img: string) => void;
 }
 
-export type ToastMessage = {
-    message: string;
-    props: NixToastProps;
-  }
+
+
 

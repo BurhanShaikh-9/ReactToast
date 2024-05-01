@@ -19,6 +19,9 @@ const UseToastStates = create<ToastState>((set) => ({
     isBarColor: '',
     setBarColor: (color) => set((state) => ({ ...state, isBarColor: color })),
 
+    isBackgroundColor: '',
+    setBackgroundColor: (color) => set((state) => ({ ...state, isBackgroundColor: color })),
+
 
     isImg:'',
     setIsImg: (img) => set((state) => ({ ...state, isImg: img })),
