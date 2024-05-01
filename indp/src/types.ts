@@ -38,7 +38,12 @@ export type ToastState = {
     setIsMsg: (msg: string) => void;
     isBarColor: string;
     setBarColor: (color: string) => void;
+    isImg: string;
     setIsImg: (img: string) => void;
 }
 
+export type ToastMessage = {
+    message: string;
+    props: NixToastProps;
+  }
 
