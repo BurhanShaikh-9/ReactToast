@@ -1,9 +1,13 @@
 import React, { useEffect, useRef } from 'react'
-import crossSvg from '../../assets/crossSign.svg';
 import  UseToastStates  from '../hooks/globalVariable';
 import NixButtons from '../hooks/buttonService';
 import { ToasterProps } from '../types';
 
+
+const crossSvg = 'https://react-toast-iota.vercel.app/crossSign.svg'
+const succImg = 'https://react-toast-iota.vercel.app/success.gif'
+const errorImg = 'https://react-toast-iota.vercel.app/Error.gif'
+const warningImg = 'https://react-toast-iota.vercel.app/warn1.gif'
 
 
 const Toaster: React.FC<ToasterProps> = ({ position, duration, barPosition, barColor }) => {
@@ -42,7 +46,7 @@ const Toaster: React.FC<ToasterProps> = ({ position, duration, barPosition, barC
               <img src={crossSvg} alt="" className='' />
             </button>
             <div>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Flat_tick_icon.svg" className='nix_toastImg' alt="" />
+              <img src={succImg} className='nix_toastImg' alt="" />
             </div>
             <div>
               {isMsg}
