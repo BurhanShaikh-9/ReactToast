@@ -1,14 +1,14 @@
 .nix_toastMainContainer {
     position: absolute;
     background-color: rgb(245, 245, 245);
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     cursor: pointer;
 }
 
 .nix_allToast {
     overflow: hidden;
     display: flex;
-    gap: 75px;
+    gap: 10px;
     flex-direction: column;
     position: fixed;
     width: 320px;
@@ -23,6 +23,7 @@
 
 .nix_allToastIn {
     position: relative;
+    height: 65px;
 }
 
 .nix_cancelToast {
@@ -147,17 +148,18 @@
     left: 50%;
     transform: translate(-50%);
     top: 20px;
+    padding: 20px;
 }
 
 .nix_toast_top-left {
     left: 0;
-    padding: 0 30px;
+    padding: 0 20px;
     top: 25px;
 }
 
 .nix_toast_top-right {
     right: 0;
-    padding: 0 30px;
+    padding: 0 20px;
     top: 25px;
 }
 
@@ -165,11 +167,12 @@
     left: 40%;
     transform: translate(-50%, 0);
     bottom: 20px;
+    padding: 20px;
 }
 
 .nix_toast_bottom-left {
     left: 0;
-    padding: 0 30px;
+    padding: 0 20px;
     bottom: 25px;
 }
 .nix_toast_bottom-right {
