@@ -1,50 +1,42 @@
-import React, { useEffect, useRef } from 'react';
-import Toaster1 from './toaster/toast1';
-import Toaster2 from './toaster/toast2';
-import '../assets/style.css';
+import React from 'react';
 import UseNixToast from "./hooks/useNixToast";
-import  UseToastStates  from './hooks/globalVariable';
-import NixButtons from './hooks/buttonService';
+import UseToastStates from './hooks/globalVariable';
 import { NixToastProps } from './types';
+import { ToastContainer } from './toastContainer';
+import '../assets/style.css';
 
 
 
-const NixToast: React.FC<NixToastProps> = ({ type, position, duration, barPosition, barColor, backgroundColor }: NixToastProps) => {
-  const { isShow } = UseToastStates();
-  const { hideToast } = NixButtons();
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null); 
+const NixToast: React.FC<NixToastProps> = ({ toastImg, toastType, position, duration, barPosition, barColor, backgroundColor }: NixToastProps) => {
+  const { isQueue } = UseToastStates();
+
 
   const toastsProps = {
+    toastType,
     position,
     duration,
     barPosition,
     barColor,
-    backgroundColor
+    backgroundColor,
+    toastImg
   };
-
-  useEffect(() => {
-    if (isShow.show) {
-      timeoutRef.current = setTimeout(() => {
-        hideToast();
-        timeoutRef.current = null;
-      }, duration * 1000);
-    }
-
-    return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-        timeoutRef.current = null;
-      }
-    };
-  }, [isShow.show]);
-
-  if (!isShow.show) return null;
 
   return (
     <React.Fragment>
-      {type === '1' && <Toaster1 {...toastsProps} />}
+      <div className={`nix_allToast nix_toast_${position}`}>
+
+        {
+          isQueue.map((item, keyId) => {
+            return (
+              <div key={keyId}  className='nix_allToastIn' >
+                <ToastContainer {...toastsProps} {...item} />
+              </div>
+            )
+          })
+        }
+      </div>
     </React.Fragment>
   );
 };
 
-export {NixToast, UseNixToast};
+export { NixToast, UseNixToast };

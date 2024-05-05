@@ -1,59 +1,67 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import UseToastStates from '../hooks/globalVariable';
-import NixButtons from '../hooks/buttonService';
 import { ToasterProps } from '../types';
+import CustomHooks from '../hooks/customHooks';
 
 
 const crossSvg = 'https://react-toast-iota.vercel.app/crossSign.svg'
 
 
 
-const Toaster: React.FC<ToasterProps> = ({ position, duration, barPosition, barColor, backgroundColor }) => {
+const Toaster: React.FC<ToasterProps> = ({id,  toastImg, type, msg, position, duration, barPosition, barColor, backgroundColor }) => {
+  const { animateInOutDuration, isQueue, setIsQueue } = UseToastStates()
 
-  const { hideToast } = NixButtons();
-  const { isMsg, isBarColor, isShow, animateInOutDuration, isImg, isBackgroundColor } = UseToastStates()
+  const { getType, getAnimationIn } = CustomHooks()
 
-  const getAnimationIn = () => {
-    switch (position) {
-      case 'top-center':
-        return 'bounceInTop';
-      case 'top-left':
-      case 'bottom-left':
-        return 'bounceInLeft';
-      case 'top-right':
-      case 'bottom-right':
-        return 'bounceInRight';
-      case 'bottom-center':
-        return 'bounceInCenterBot';
-      default:
-        return 'bounceInTop';
-    }
+
+  const [defaultBarClr, setDefaultBarClr] = useState<string | undefined>(!barColor ? getType(type)?.barColor : barColor);
+  const [defaultImg, setDefaultImg] = useState<string | undefined>(!toastImg ? getType(type)?.img : toastImg);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      removeToast();
+    }, duration * 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const removeToast = () => {
+    const updatedQueue = isQueue.filter((item) => {
+      return item.id !== id; 
+    });
+
+    console.log(updatedQueue, 'updadddd')
+    setIsQueue(updatedQueue);
   };
 
-  const animationStyle = { animation: `durationAnimation ${duration}s linear forwards`, background: barColor ? barColor : isBarColor };
-  const animationContainerOpen = { animation: `${isShow.triggerAnimation ? getAnimationIn() : 'bounceOut'} .${animateInOutDuration}s ease forwards` };
-  const nixToastBackgroundColor = { backgroundColor: backgroundColor ? backgroundColor:  isBackgroundColor}
+  const handleButtonClick = () => {
+    removeToast();
+  };
 
-  return (
+  const animationStyle = { animation: `durationAnimation ${duration}s linear forwards`, background: defaultBarClr };
+  const animationContainerOpen = { animation: `${getAnimationIn(position)} .${animateInOutDuration}s ease forwards` };
+
+
+  return  (
     <React.Fragment>
       <div className={`nix_toastMainContainer nix_${position}`} style={animationContainerOpen}>
-        <div className="nix_toastInner" style={nixToastBackgroundColor}>
+        <div className="nix_toastInner" >
           <div className={`nix_toastDuration nix_${barPosition ? barPosition : 'bar-top'}`} style={animationStyle}></div>
           <div className='nix_inContent'>
-            <button className='nix_cancelToast' onClick={() => hideToast()}>
+            <button className='nix_cancelToast' onClick={handleButtonClick}>
               <img src={crossSvg} alt="" className='' />
             </button>
             <div>
-              <img src={isImg} className='nix_toastImg' alt="" />
+              <img src={defaultImg} className='nix_toastImg' alt="" />
             </div>
             <div>
-              {isMsg}
+              {msg}
             </div>
           </div>
         </div>
       </div>
     </React.Fragment>
-  )
+  ) 
 }
 
 export default Toaster

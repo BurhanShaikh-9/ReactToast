@@ -1,8 +1,18 @@
 .nix_toastMainContainer {
-  position: fixed;
+  position: absolute;
   background-color: rgb(245, 245, 245);
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   cursor: pointer;
+}
+
+.nix_allToast {
+  overflow: hidden;
+  display: flex;
+  gap: 75px;
+  flex-direction: column;
+  position: fixed;
+  width: 320px;
+  z-index: 1;
 }
 
 .nix_toastImg {
@@ -10,6 +20,10 @@
   height: 30px;
   -o-object-fit: contain;
      object-fit: contain;
+}
+
+.nix_allToastIn {
+  position: relative;
 }
 
 .nix_cancelToast {
@@ -108,35 +122,39 @@
     transform: translateY(-200%);
   }
 }
-.nix_top-right {
-  right: 30px;
-  top: 25px;
-}
-
-.nix_top-center {
-  left: 40%;
-  transform: translate(-50%, 0);
+.nix_toast_top-center {
+  left: 50%;
+  transform: translate(-50%);
   top: 20px;
 }
 
-.nix_top-left {
-  left: 30px;
+.nix_toast_top-left {
+  left: 0;
+  padding: 0 30px;
   top: 25px;
 }
 
-.nix_bottom-right {
-  right: 30px;
-  bottom: 25px;
+.nix_toast_top-right {
+  right: 0;
+  padding: 0 30px;
+  top: 25px;
 }
 
-.nix_bottom-center {
+.nix_toast_bottom-center {
   left: 40%;
   transform: translate(-50%, 0);
   bottom: 20px;
 }
 
-.nix_bottom-left {
-  left: 30px;
+.nix_toast_bottom-left {
+  left: 0;
+  padding: 0 30px;
+  bottom: 25px;
+}
+
+.nix_toast_bottom-right {
+  right: 0;
+  padding: 0 30px;
   bottom: 25px;
 }
 

@@ -1,27 +1,35 @@
 export type NixToastProps = {
-    type: '1' | '2';
+    id: string,
+    toastType: '1' | '2';
     position: string;
     duration: number;
     barPosition?: string;
     barColor?: string;
+    type:string,
+    msg:string,
     backgroundColor?: string;
+    toastImg?: string;
 }
 
 
 export type ToasterProps = {
+    id:string;
     position: string;
     duration: number;
     barPosition?: string;
     barColor?: string;
     backgroundColor?: string;
+    type: string;
+    toastImg?: string;
+    msg: string
 }
 
 
 export type NixToastFunctions = {
-    nixToast: (message: string) => void;
-    nixSuccess: (message: string) => void;
-    nixError: (message: string) => void;
-    nixWarn: (message: string) => void;
+    nixToast: (message: string, duration:number) => void;
+    nixSuccess: (message: string, duration:number) => void;
+    nixError: (message: string, duration:number) => void;
+    nixWarn: (message: string, duration:number) => void;
 }
 
 export type nixBtnProp = {
@@ -30,20 +38,8 @@ export type nixBtnProp = {
 
 export type ToastState = {
     animateInOutDuration: number;
-    isShow: {
-        show: boolean;
-        triggerAnimation: boolean;
-    };
-    isHide: () => void;
-    setIsShow: () => void;
-    isMsg: string;
-    setIsMsg: (msg: string) => void;
-    isBarColor: string;
-    setBarColor: (color: string) => void;
-    isBackgroundColor: string;
-    setBackgroundColor: (color: string) => void;
-    isImg: string;
-    setIsImg: (img: string) => void;
+    isQueue: { msg: string; type: string; duration: number; id: string }[];
+    setIsQueue: (newState: { msg: string; type: string; duration: number; id:string }[]) => void;
 }
 
 
