@@ -1,0 +1,170 @@
+.nix_toastMainContainer {
+  position: absolute;
+  background-color: rgb(245, 245, 245);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  cursor: pointer;
+}
+
+.nix_allToast {
+  overflow: hidden;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  position: fixed;
+  width: 320px;
+  z-index: 1;
+}
+
+.nix_toastImg {
+  width: 30px;
+  height: 30px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.nix_allToastIn {
+  position: relative;
+  height: 65px;
+}
+
+.nix_cancelToast {
+  position: absolute;
+  border: none;
+  top: 0;
+  cursor: pointer;
+  right: 0;
+  background-color: transparent;
+}
+.nix_cancelToast img {
+  height: 25px;
+  width: 25px;
+}
+
+.nix_toastInner {
+  min-width: 320px;
+  padding: 5px 0;
+}
+
+.nix_inContent {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 20px;
+}
+
+.nix_toastDuration {
+  height: 5px;
+  position: absolute;
+  width: 0%;
+}
+
+@keyframes durationAnimation {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes bounceInTop {
+  0% {
+    transform: translateY(-100%);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(-20%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes bounceInLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  75% {
+    transform: translateX(-20%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes bounceInRight {
+  0% {
+    transform: translateX(100%);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  75% {
+    transform: translateX(20%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes bounceOut {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(20%);
+  }
+  75% {
+    transform: translateY(-10%);
+  }
+  100% {
+    transform: translateY(-200%);
+  }
+}
+.nix_toast_top-center {
+  left: 50%;
+  transform: translate(-50%);
+  top: 20px;
+  padding: 20px;
+}
+
+.nix_toast_top-left {
+  left: 0;
+  padding: 0 20px;
+  top: 25px;
+}
+
+.nix_toast_top-right {
+  right: 0;
+  padding: 0 20px;
+  top: 25px;
+}
+
+.nix_toast_bottom-center {
+  left: 40%;
+  transform: translate(-50%, 0);
+  bottom: 20px;
+  padding: 20px;
+}
+
+.nix_toast_bottom-left {
+  left: 0;
+  padding: 0 20px;
+  bottom: 25px;
+}
+
+.nix_toast_bottom-right {
+  right: 0;
+  padding: 0 30px;
+  bottom: 25px;
+}
+
+.nix_bar-top {
+  top: 0;
+}
+
+.nix_bar-bottom {
+  bottom: 0;
+}/*# sourceMappingURL=style.css.map */
