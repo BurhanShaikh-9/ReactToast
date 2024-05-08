@@ -7,14 +7,13 @@ import '../assets/style.css';
 
 
 
-const NixToast: React.FC<NixToastProps> = ({ toastImg, toastType, position, duration, barPosition, barColor, backgroundColor }: NixToastProps) => {
+const NixToast: React.FC<NixToastProps> = ({ toastImg, toastType, position, barPosition, barColor, backgroundColor }: NixToastProps) => {
   const { isQueue } = UseToastStates();
 
 
   const toastsProps = {
     toastType,
     position,
-    duration,
     barPosition,
     barColor,
     backgroundColor,
