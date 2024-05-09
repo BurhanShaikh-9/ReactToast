@@ -13,11 +13,10 @@ const Toaster: React.FC<ToasterProps> = ({ id, toastImg, type, msg, position, du
 
   const { getType, getAnimationIn } = CustomHooks()
 
-
   const [defaultBarClr, setDefaultBarClr] = useState<string | undefined>(!barColor ? getType(type)?.barColor : barColor);
   const [defaultImg, setDefaultImg] = useState<string | undefined>(!toastImg ? getType(type)?.img : toastImg);
-  const [timer, setTimer] = useState<NodeJS.Timeout | null>(null);
-  console.log(isQueue,'queeee')
+  const [defaultBackClr, setDefaultBackClr] = useState<string | undefined>(!backgroundColor ? backgroundColor : 'white');
+
 
   const removeToast = () => {
     const removeItem = isQueue.filter((item) => { return item.id !== id; })
@@ -25,20 +24,17 @@ const Toaster: React.FC<ToasterProps> = ({ id, toastImg, type, msg, position, du
   };
 
   useEffect(() => {
-    console.log(duration, 'durrr')
-    console.log("useEffect triggered for toast with id:", id);
     const timer = setTimeout(() => {
-      console.log("Removing toast with id:", id);
       removeToast();
     }, duration * 1000);
   
     return () => clearTimeout(timer);
-  }, [isQueue.length]);
+  }, []);
 
 
 
   const animationStyle = { animation: `durationAnimation ${duration}s linear forwards`, background: defaultBarClr };
-  const animationContainerOpen = { animation: `${getAnimationIn(position)} .${animateInOutDuration}s ease forwards` };
+  const animationContainerOpen = { animation: `${getAnimationIn(position)} .${animateInOutDuration}s ease forwards`, backgroundColor: defaultBackClr };
 
 
   return (

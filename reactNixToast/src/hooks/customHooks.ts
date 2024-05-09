@@ -34,7 +34,7 @@ const CustomHooks = () => {
     const getType = (type: string) => {
         switch (type) {
             case '1':
-                return { img: 'https://react-toast-iota.vercel.app/normal.gif', barColor: '#2b2b2b' }
+                return { img: 'https://react-toast-iota.vercel.app/normal.png', barColor: '#2b2b2b' }
             case '2':
                 return { img: 'https://react-toast-iota.vercel.app/success.gif', barColor: '#00CC66' }
             case '3':
