@@ -3,7 +3,7 @@ import { NixToastProps } from './types'
 import Toaster from './toaster/toast1';
 import { UseNixToast } from './toast';
 
-export const ToastContainer = ({ toastImg, toastType, position, barPosition, barColor, backgroundColor, type, msg, duration, id }: NixToastProps) => {
+export const ToastContainer = ({ toastImg, toastType, position, barPosition, barColor, backgroundColor, type, msg, duration, id, subscribe }: NixToastProps) => {
 
   
     const toastsProps = {
@@ -16,7 +16,8 @@ export const ToastContainer = ({ toastImg, toastType, position, barPosition, bar
         duration,
         barPosition,
         barColor,
-        backgroundColor
+        backgroundColor,
+        subscribe
     };
 
     return (

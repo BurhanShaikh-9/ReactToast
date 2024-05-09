@@ -9,6 +9,7 @@ export type NixToastProps = {
     msg:string,
     backgroundColor?: string;
     toastImg?: string;
+    subscribe: boolean
 }
 
 
@@ -21,15 +22,16 @@ export type ToasterProps = {
     backgroundColor?: string;
     type: string;
     toastImg?: string;
-    msg: string
+    msg: string;
+    subscribe: boolean;
 }
 
 
 export type NixToastFunctions = {
-    nixToast: (message: string, duration:number) => void;
-    nixSuccess: (message: string, duration:number) => void;
-    nixError: (message: string, duration:number) => void;
-    nixWarn: (message: string, duration:number) => void;
+    nixToast: (message: string, duration:number, subscribe:boolean) => void;
+    nixSuccess: (message: string, duration:number, subscribe:boolean) => void;
+    nixError: (message: string, duration:number, subscribe:boolean) => void;
+    nixWarn: (message: string, duration:number, subscribe:boolean) => void;
 }
 
 export type nixBtnProp = {
@@ -38,8 +40,8 @@ export type nixBtnProp = {
 
 export type ToastState = {
     animateInOutDuration: number;
-    isQueue: { msg: string; type: string; duration: number; id: string }[];
-    setIsQueue: (newState: { msg: string; type: string; duration: number; id:string }[]) => void;
+    isQueue: { msg: string; type: string; duration: number; id: string, subscribe:boolean }[];
+    setIsQueue: (newState: { msg: string; type: string; duration: number; id:string, subscribe:boolean }[]) => void;
 }
 
 

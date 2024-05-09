@@ -8,7 +8,7 @@ const crossSvg = 'https://react-toast-iota.vercel.app/crossSign.svg'
 
 
 
-const Toaster: React.FC<ToasterProps> = ({ id, toastImg, type, msg, position, duration, barPosition, barColor, backgroundColor }) => {
+const Toaster: React.FC<ToasterProps> = ({ id, toastImg, type, msg, position, duration, barPosition, barColor, backgroundColor, subscribe }) => {
   const { animateInOutDuration, isQueue, setIsQueue } = UseToastStates()
 
   const { getType, getAnimationIn } = CustomHooks()
@@ -16,20 +16,24 @@ const Toaster: React.FC<ToasterProps> = ({ id, toastImg, type, msg, position, du
   const [defaultBarClr, setDefaultBarClr] = useState<string | undefined>(!barColor ? getType(type)?.barColor : barColor);
   const [defaultImg, setDefaultImg] = useState<string | undefined>(!toastImg ? getType(type)?.img : toastImg);
   const [defaultBackClr, setDefaultBackClr] = useState<string | undefined>(!backgroundColor ? backgroundColor : 'white');
+  const [subscribeToast, setUnsubscribeToast] = useState(subscribe);
 
 
   const removeToast = () => {
-    const removeItem = isQueue.filter((item) => { return item.id !== id; })
-    setIsQueue(removeItem);
+    setUnsubscribeToast(false)
   };
+
+
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      removeToast();
+      removeToast()
     }, duration * 1000);
-  
+
     return () => clearTimeout(timer);
   }, []);
+
+  console.log(isQueue, 'quqqqqq')
 
 
 
@@ -37,7 +41,7 @@ const Toaster: React.FC<ToasterProps> = ({ id, toastImg, type, msg, position, du
   const animationContainerOpen = { animation: `${getAnimationIn(position)} .${animateInOutDuration}s ease forwards`, backgroundColor: defaultBackClr };
 
 
-  return (
+  return (subscribeToast) ? (
     <React.Fragment>
       <div className={`nix_toastMainContainer nix_${position}`} style={animationContainerOpen}>
         <div className="nix_toastInner" >
@@ -56,7 +60,7 @@ const Toaster: React.FC<ToasterProps> = ({ id, toastImg, type, msg, position, du
         </div>
       </div>
     </React.Fragment>
-  )
+  ) : null
 }
 
 export default Toaster

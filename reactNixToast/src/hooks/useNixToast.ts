@@ -9,19 +9,19 @@ const UseNixToast = (): NixToastFunctions => {
   const { setIsQueue, isQueue } = UseToastStates();
 
   const nixToast = (message: string, duration: number) => {
-    setIsQueue([...isQueue, { msg: message, type: '1', duration: duration, id: generateRandomId() }])
+    setIsQueue([...isQueue, { msg: message, type: '1', duration: duration, id: generateRandomId(), subscribe:true }])
 };
 
   const nixSuccess = (message: string, duration: number) => {
-    setIsQueue([...isQueue, { msg: message, type: '2', duration: duration, id: generateRandomId() }])
+    setIsQueue([...isQueue, { msg: message, type: '2', duration: duration, id: generateRandomId(),subscribe:true }])
   };
 
   const nixError = (message: string, duration: number) => {
-    setIsQueue([...isQueue, { msg: message, type: '3', duration: duration, id: generateRandomId() }])
+    setIsQueue([...isQueue, { msg: message, type: '3', duration: duration, id: generateRandomId(),subscribe:true }])
   };
 
   const nixWarn = (message: string, duration: number) => {
-    setIsQueue([...isQueue, { msg: message, type: '4', duration: duration, id: generateRandomId() }])
+    setIsQueue([...isQueue, { msg: message, type: '4', duration: duration, id: generateRandomId(), subscribe:true }])
   };
 
   return { nixToast, nixSuccess, nixError, nixWarn };
