@@ -21,7 +21,15 @@ const Toaster: React.FC<ToasterProps> = ({ id, toastImg, type, msg, position, du
 
   const removeToast = () => {
     setUnsubscribeToast(false)
+    // setIsQueue(isQueue.filter(item => item.id !== id ));
+
   };
+
+
+  // useEffect(() => {
+  //   console.log(isQueue,'aaaaaaaa')
+  // }, [isQueue.length])
+  
 
 
 
@@ -33,7 +41,6 @@ const Toaster: React.FC<ToasterProps> = ({ id, toastImg, type, msg, position, du
     return () => clearTimeout(timer);
   }, []);
 
-  console.log(isQueue, 'quqqqqq')
 
 
 

@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import UseNixToast from "./hooks/useNixToast";
 import UseToastStates from './hooks/globalVariable';
-import { NixToastProps } from './types';
+import { NixToastProps, ToastState } from './types';
 import { ToastContainer } from './toastContainer';
 import '../assets/style.css';
 
 
 
 const NixToast: React.FC<NixToastProps> = ({ toastImg, toastType, position, barPosition, barColor, backgroundColor }: NixToastProps) => {
-  const { isQueue } = UseToastStates();
-
+  const { isQueue, setIsQueue } = UseToastStates();
+  interface StateItem {
+    id: string;
+    subscribe: boolean;
+  }
 
   const toastsProps = {
     toastType,
@@ -27,8 +30,8 @@ const NixToast: React.FC<NixToastProps> = ({ toastImg, toastType, position, barP
         {
           isQueue.map((item, keyId) => {
             return (
-              <div key={keyId}  className='nix_allToastIn' >
-                <ToastContainer {...toastsProps} {...item} />
+              <div key={keyId} className='nix_allToastIn' >
+                <ToastContainer {...toastsProps} {...item}  />
               </div>
             )
           })

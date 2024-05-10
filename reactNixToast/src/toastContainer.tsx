@@ -22,7 +22,7 @@ export const ToastContainer = ({ toastImg, toastType, position, barPosition, bar
 
     return (
         <React.Fragment>
-            {toastType === '1' && <Toaster {...toastsProps} />}
+            {toastType === '1' && <Toaster {...toastsProps}  />}
         </React.Fragment>
     )
 }
