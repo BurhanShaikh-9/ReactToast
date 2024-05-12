@@ -1,6 +1,14 @@
 export type NixToastProps = {
+    toastImg?: string;
+    toastType?: '1' | '2';
+    position: string;
+    barPosition?: string;
+    barColor?: string;
+    backgroundColor?: string;
+}
+export type NixToastWrapper = {
     id: string,
-    toastType: '1' | '2';
+    toastType?: '1' | '2';
     position: string;
     duration: number;
     barPosition?: string;

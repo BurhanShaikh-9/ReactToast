@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import UseToastStates from '../hooks/globalVariable';
-import { ToasterProps } from '../types';
+import { ToasterProps, ToastState } from '../types';
 import CustomHooks from '../hooks/customHooks';
 
 
@@ -21,16 +21,7 @@ const Toaster: React.FC<ToasterProps> = ({ id, toastImg, type, msg, position, du
 
   const removeToast = () => {
     setUnsubscribeToast(false)
-    // setIsQueue(isQueue.filter(item => item.id !== id ));
-
   };
-
-
-  // useEffect(() => {
-  //   console.log(isQueue,'aaaaaaaa')
-  // }, [isQueue.length])
-  
-
 
 
   useEffect(() => {

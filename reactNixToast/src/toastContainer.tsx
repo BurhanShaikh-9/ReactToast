@@ -1,11 +1,11 @@
 import React from 'react'
-import { NixToastProps } from './types'
+import { NixToastWrapper } from './types'
 import Toaster from './toaster/toast1';
-import { UseNixToast } from './toast';
 
-export const ToastContainer = ({ toastImg, toastType, position, barPosition, barColor, backgroundColor, type, msg, duration, id, subscribe }: NixToastProps) => {
 
-  
+export const ToastContainer = ({ toastImg, toastType, position, barPosition, barColor, backgroundColor, type, msg, duration, id, subscribe }: NixToastWrapper) => {
+
+
     const toastsProps = {
         id,
         toastImg,
@@ -22,7 +22,8 @@ export const ToastContainer = ({ toastImg, toastType, position, barPosition, bar
 
     return (
         <React.Fragment>
-            {toastType === '1' && <Toaster {...toastsProps}  />}
+            {/* Toast Container will render different types of Toasters depending on the toastType props default will be toast 1 */}
+            <Toaster {...toastsProps} />
         </React.Fragment>
     )
 }

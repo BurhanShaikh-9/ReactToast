@@ -1,7 +1,7 @@
 {
   "name": "nix-toast",
-  "version": "1.0.12",
-  "description": "toast description",
+  "version": "1.0.13",
+  "description": "React notification made easy and so customizable",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -9,9 +9,21 @@
     "build": "tsup --watch"
   },
   "keywords": [
-    "toast"
+    "react",
+    "notification",
+    "toast",
+    "alert",
+    "popup",
+    "react-component",
+    "nix-toast",
+    "push",
+    "alert"
   ],
   "author": "burhan",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BurhanShaikh-9/ReactToast.git"
+  },
   "license": "ISC",
   "peerDependencies": {
     "react": "^18.2.0",
