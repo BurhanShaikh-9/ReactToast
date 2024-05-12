@@ -9,7 +9,7 @@ const UseToastStates = create<ToastState>((set) => ({
     animateInOutDuration: animationDuration,
 
     isQueue: [],
-    setIsQueue: (newState: ToastState['isQueue']) => set({ isQueue: newState }),
+    setIsQueue: (newState) => set({ isQueue: newState }),
 }));
 
 export default UseToastStates;
